@@ -2,6 +2,7 @@
   "name": "chai_and_backend",
   "version": "1.0.0",
   "description": "A backend at chai aur code channel - youtube Channel",
+  "type": "module",
   "keywords": [
     "javascript",
     "backend",
@@ -9,9 +10,12 @@
   ],
   "license": "ISC",
   "author": "Sarika Mehra",
-  "type": "commonjs",
+  "devDependencies": {
+    "nodemon": "3.1.14"
+  },
+
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/index.js"
   }
 }
