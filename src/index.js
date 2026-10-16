@@ -6,12 +6,32 @@ import dotenv from "dotenv"
 import connectDB from "./db/index.js";
 
 dotenv.config({
-    path: './env'
+    path: './.env'
 })
 
 
 
 connectDB()
+
+//.then() is a method used with a Promise. It executes a callback when the Promise is fulfilled (successful).
+
+//Notice that there are two callbacks in your code:
+// - The .then() callback runs after the database connects.
+// - The app.listen() callback runs after the server starts listening.
+
+.then(() => {
+    const server = app.listen(process.env.PORT || 8000, () => {
+        console.log(`Server is running at port : ${process.env.PORT}`)
+    })
+
+    // listen the  http server error 
+    server.on("error", (err) => {
+        console.log("SERVER ERROR !!!" , err)
+    })
+})
+.catch((err) => {
+    console.log("MONGO DB CONNECTION FAILED !!!", err)
+})
 
 
 
