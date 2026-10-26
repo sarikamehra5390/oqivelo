@@ -1,4 +1,5 @@
-class apiResponse {
+// This ApiResponse class is the opposite side of the ApiError class we just discussed. ApiResponse is used to create a standardized response when an API request succeeds.
+class ApiResponse {
     constructor(
         statusCode,
         data,
