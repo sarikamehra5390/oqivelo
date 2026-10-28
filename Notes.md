@@ -10,6 +10,7 @@ URI
 URN
 1. What are HTTP headers?
 -> Headers are meta data which is the key - value pair sent along with request and response.
+-> It is a stateless application level protocol
 -> Caching , authentication , manage state
 -> Categories for Headers:
   1. Request Header - from client
@@ -42,7 +43,7 @@ URN
    * 4xx - Client Error
    * 5xx - Server error
 -> Some common standard status code
-1. 101 continue
+1. 100 continue
 2. 102 Processing
 3. 200 OK
 4. 201 created

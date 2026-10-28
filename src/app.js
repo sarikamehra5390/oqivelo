@@ -15,8 +15,15 @@ app.use(express.urlencoded({extended: true, limit:"16kb"}))
 app.use(express.static("public"))
 
 
-// this is used for that I can access cookies of user browser through mt browser and also able to set it. Basically I can perform CRUD operations on user's cookie
+// this is used for that I can access cookies of user browser through my browser and also able to set it. Basically I can perform CRUD operations on user's cookie
 app.use(cookieParser())
+
+// routes import 
+
+import userRouter from "./routes/user.routes.js"
+
+// routes declaration
+app.use("/api/v1/users", userRouter)
 
 
 export { app } 
