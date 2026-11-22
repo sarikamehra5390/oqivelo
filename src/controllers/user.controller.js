@@ -24,13 +24,17 @@ const registerUser = asyncHandler( async (req , res) => {
        // }
 
        if(
+              //The some() method checks whether at least one element in an array satisfies a condition.
               [fullName, email, username, password].some((field) => 
                 field?.trim() === "")
               ){
                      throw new ApiError(400, "All fields are compulsory and required")
               }     
-              
-       const existedUser = User.findOne({
+       
+       //findOne() is a Mongoose method that finds one matching document in the database.
+       //$or is a MongoDB operator. It means at least one condition must be true.
+
+       const existedUser = await User.findOne({
               $or: [{ username }, { email }]
        })
 
