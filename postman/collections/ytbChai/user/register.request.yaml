@@ -1,0 +1,34 @@
+$kind: http-request
+url: "{{server}}/users/register"
+method: POST
+body:
+  type: formdata
+  content:
+    - type: text
+      key: fullName
+      value: one
+      disabled: false
+    - type: text
+      key: email
+      value: one@gmail.com
+      disabled: false
+    - type: text
+      key: password
+      value: "12345678"
+      disabled: false
+    - type: file
+      key: avatar
+      src:
+        - /C:/Users/mehra/Pictures/Profilepic2.jpeg
+      disabled: false
+    - type: text
+      key: username
+      value: one
+      disabled: false
+    - type: file
+      key: coverImage
+      src:
+        - /C:/Users/mehra/Pictures/download (1).jpg
+      description: ""
+      disabled: false
+order: 1000

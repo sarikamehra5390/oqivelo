@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 
 
-const userSchema = new SchemaType(
+const userSchema = new Schema(
     {
       username : {
         type: String,
@@ -52,7 +52,7 @@ const userSchema = new SchemaType(
           required: [true, "Password is required"]
       },
       refreshToken: {
-        tyope:String,
+        type:String,
       },
 
 
@@ -64,10 +64,11 @@ const userSchema = new SchemaType(
 
 // in arrow function in javascript we do not have the understanding of the context, but here we have to know the context 
 
-userSchema.pre("save", async function(next) {
-  if(!this.isModified("password")) return next()
+userSchema.pre("save", async function() {
+  if(!this.isModified("password")) return 
+
   this.password = await bcrypt.hash(this.password, 10)
-  next()
+  
 })
 
 // custom methods that we can design
